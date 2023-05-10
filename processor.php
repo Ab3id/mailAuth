@@ -88,9 +88,10 @@ if($action == 'act_login'){
 
             //generate OTP
             $code = rand();
-
+            $user_mail = $row['email'];
+            $user_name = $row['name'];
             $mail->IsHTML(true);
-            $mail->AddAddress("abeidtwo@gmail.com", "Abeid");
+            $mail->AddAddress($user_mail, $user_name);
             $mail->SetFrom("ab3idtech@gmail.com", "Kibamba Auth");
             $mail->Subject = "OTP AUTH";
             $content = "<b>Here is your OTP: </b>".$code;
